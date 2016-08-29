@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/style.css' %}" />
+
+{% if gym_list %}
+    <ul>
+    <h1>
+      Gym Admin list
+    </h1>
+    {% for gym in gym_list %}
+        <li><a href="/dashboard/{{ gym.id }}/gym">{{ gym.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No gym jet.</p>
+{% endif %}

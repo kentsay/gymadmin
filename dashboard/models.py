@@ -15,8 +15,7 @@ class Members(models.Model):
     gym = models.ForeignKey(Gym, on_delete=models.CASCADE)
     name    = models.CharField(max_length=200)
     vorname = models.CharField(max_length=200)
-    join_date = models.DateTimeField('joined date')
+    join_date = models.DateField('joined date')
 
     def __str__(self):
-        return self.name, self.vorname, self.join_date, self.gym
-
+        return '{} {} - {}'.format(self.vorname, self.name, self.gym)

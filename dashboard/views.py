@@ -1,8 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
+from .models import Gym
+
 # Create your views here.
 def index(request):
-    a = 10
-    b = 20
-    c = a+b
-    return HttpResponse("<h1>Hello world. You're in dashboard " + str(c) + "</h1>")
+    gym_list = Gym.objects.order_by('name')[:5]
+    context = {
+        'gym_list': gym_list,
+        'gym_number': len(gym_list),
+    }
+    return render(request, 'dashboard/sbadmin/pages/index.html', context)
+
+def gym(request, gym_id):
+    response = "You're looking at gym %s."
+    return HttpResponse(response % gym_id)
+
+def member(request, member_id):
+    response = "You're looking at member %s."
+    return HttpResponse(response % member_id)
