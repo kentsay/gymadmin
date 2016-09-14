@@ -47,7 +47,11 @@
                         {% endif %}
                     </div>
                     <div class="panel-body">
+                        {% if redirect_to %}
+                        <form role="form" action="login_check?next={{redirect_to}}" method="post">
+                        {% else %}
                         <form role="form" action="login_check" method="post">
+                        {% endif %}
                         {% csrf_token %}
                             <fieldset>
                                 <div class="form-group">
