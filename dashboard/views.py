@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 from .members_form import MembersForm
-from .models import Gym
+from .models import Gym, Members
 
 
 @login_required
@@ -18,13 +18,20 @@ def index(request):
 
 
 @login_required
-def tables(request):
-    return render(request, 'dashboard/sbadmin/pages/tables.html')
+def gymadmin(request):
+    gym_list = Gym.objects.all()
+    context = {'gym_list': enumerate(gym_list, start=1), 'gym_number': len(gym_list)}
+    return render(request, 'dashboard/sbadmin/pages/gymadmin.html', context)
 
 
 @login_required
-def forms(request):
-    return render(request, 'dashboard/sbadmin/pages/forms.html')
+def members(request):
+    member_list = Members.objects.all()
+    context = {
+        'members': member_list,
+        'count': len(member_list),
+    }
+    return render(request, 'dashboard/sbadmin/pages/members.html', context)
 
 
 @login_required
@@ -42,7 +49,7 @@ def members_add(request):
 
     gym_list = Gym.objects.all()
     context = {'gym_list': enumerate(gym_list, start=1), 'gym_number': len(gym_list), 'form:': form}
-    return render(request, 'dashboard/sbadmin/pages/add_members.html', context)
+    return render(request, 'dashboard/sbadmin/pages/add_member.html', context)
 
 
 @login_required

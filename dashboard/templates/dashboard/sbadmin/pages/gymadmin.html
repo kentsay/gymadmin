@@ -1,11 +1,10 @@
-
 {% extends 'dashboard/sbadmin/pages/base.html' %}
 
 {% block content %}
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">New members</h1>
+                <h1 class="page-header">Gym Admin</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -14,14 +13,14 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Please enter basic information to add new members
+                        Admin area settings
                     </div>
                     {{ form.errors }}
                     {{ form.non_field_errors }}
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form role="form" action="add_members" method="post">{% csrf_token %}
+                                <form role="form" action="" method="post">{% csrf_token %}
                                     <div class="form-group">
                                         <label>Select Gym</label>
                                         <select class="form-control" name="gym">
@@ -31,16 +30,12 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>First Name</label>
-                                        <input class="form-control" placeholder="Example: Reto" name="vorname">
+                                        <label>Payment period</label>
+                                        <input class="form-control" placeholder="Example: 1M, 3M, 4M, 12M" name="vorname">
                                     </div>
                                     <div class="form-group">
-                                        <label>Family Name</label>
-                                        <input class="form-control" placeholder="Example: Steiger" name="name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Card number</label>
-                                        <input class="form-control" placeholder="Example: 123456789" name="uuid">
+                                        <label>Activity Names</label>
+                                        <input class="form-control" placeholder="Example: Boxing, Kickboxing, Wrestling, etc." name="name">
                                     </div>
                                     <!-- <div class="form-group">
                                         <div class='input-group date' id='datetimepicker1'>
