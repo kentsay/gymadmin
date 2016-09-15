@@ -1,16 +1,16 @@
 from django.conf import settings
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, resolve_url
 from django.contrib.auth import authenticate
 from django.contrib.auth import (
-    REDIRECT_FIELD_NAME, get_user_model, login as auth_login,
-    logout as auth_logout, update_session_auth_hash,
+    REDIRECT_FIELD_NAME, login as auth_login, logout as auth_logout,
 )
 from django.contrib import messages
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
 from django.utils.http import is_safe_url
+
 
 @sensitive_post_parameters()
 @csrf_protect
@@ -20,12 +20,14 @@ def login(request):
         return redirect('/dashboard/index')
     else:
         redirect_field_name = REDIRECT_FIELD_NAME
-        redirect_to = request.POST.get(redirect_field_name,request.GET.get(redirect_field_name, ''))
+        redirect_to = request.POST.get(redirect_field_name,request.GET.get(redirect_field_name, '/dashboard/index'))
         return render(request, 'dashboard/sbadmin/pages/login.html', {'redirect_to':redirect_to})
+
 
 def logout(request):
     auth_logout(request)
     return redirect(login)
+
 
 def login_check(request):
     redirect_field_name = REDIRECT_FIELD_NAME
