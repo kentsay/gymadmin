@@ -56,22 +56,18 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Birthday</label>
-                                        <input class="form-control" placeholder="" name="bday">
-                                    </div>
-
-                                    <!-- <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker1'>
+                                        <script type="text/javascript">
+                                            (function($) {
+                                              $('#datetimepicker').datepicker();
+                                            });
+                                        </script>
+                                        <div class='input-group date' id='datetimepicker'>
                                             <input type='text' class="form-control" />
                                             <span class="input-group-addon">
                                               <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
-                                        <script type="text/javascript">
-                                            $(function () {
-                                              $('#datetimepicker1').datetimepicker();
-                                            });
-                                        </script>
-                                    </div> -->
+                                    </div>
                                     <div class="form-group">
                                         <label>Student Discount</label>
                                         <label class="radio-inline">
@@ -81,8 +77,8 @@
                                             <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="no">No
                                         </label>
                                     </div>
-                                    <button type="submit" class="btn btn-default" value="submit">Submit Button</button>
-                                    <button type="reset" class="btn btn-default" value="reset">Reset Button</button>
+                                    <button type="submit" class="btn btn-primary" value="submit">Submit Button</button>
+                                    <button type="reset" class="btn btn-danger" value="reset">Reset Button</button>
                                 </div>
                             <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
@@ -117,9 +113,11 @@
                                     <div class="form-group">
                                         <label>Gym activities</label>
                                         {% for activity in acitiviy_list %}
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox">{{ activity.name }}
-                                        </label>
+                                            <div class="checkbox">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" value="{{ activity.name }}">{{ activity.name }}
+                                                </label>
+                                            </div>
                                         {% endfor %}
                                     </div>
                                 </div>
