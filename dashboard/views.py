@@ -4,15 +4,23 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 from .members_form import MembersForm
-from .models import Gym, Members
+from .models import Gym, Members, GymPlan, PaymentPeriod, GymActivity, FightTeam
 
 
 @login_required
 def index(request):
     gym_list = Gym.objects.all()
+    plan = GymPlan.objects.all()
+    payment = PaymentPeriod.objects.all()
+    activity = GymActivity.objects.all()
+    team = FightTeam.objects.all()
     context = {
         'gym_list': gym_list,
         'gym_number': len(gym_list),
+        'plan_list': plan,
+        'payment_list': payment,
+        'acitiviy_list': activity,
+        'team_list': team,
     }
     return render(request, 'dashboard/sbadmin/pages/index.html', context)
 
@@ -48,7 +56,19 @@ def members_add(request):
         form = MembersForm()
 
     gym_list = Gym.objects.all()
-    context = {'gym_list': enumerate(gym_list, start=1), 'gym_number': len(gym_list), 'form:': form}
+    plan = GymPlan.objects.all()
+    payment = PaymentPeriod.objects.all()
+    activity = GymActivity.objects.all()
+    team = FightTeam.objects.all()
+    context = {
+        'gym_list': enumerate(gym_list, start=1),
+        'gym_number': len(gym_list),
+        'form:': form,
+        'plan_list': enumerate(plan, start=1),
+        'payment_list': payment,
+        'acitiviy_list': activity,
+        'team_list': team
+    }
     return render(request, 'dashboard/sbadmin/pages/add_member.html', context)
 
 
