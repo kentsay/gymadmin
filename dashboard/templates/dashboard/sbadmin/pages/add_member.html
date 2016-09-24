@@ -93,9 +93,9 @@
                                     <div class="form-group">
                                         <label>Payment period</label>
                                         {% for payment in payment_list %}
-                                            <div class="checkbox">
+                                            <div class="radio">
                                                 <label>
-                                                    <input type="checkbox" value={{ payment }}>{{ payment }}
+                                                    <input type="radio" name="optionsRadios" id="{{ payment }}" value="{{ payment }}">{{ payment }} month
                                                 </label>
                                             </div>
                                         {% endfor %}
