@@ -140,8 +140,16 @@
             $( "#datepicker" ).datepicker({
                 changeMonth: true,
                 changeYear: true,
+                dateFormat: 'dd-mm-yy'
             });
         } );
+
+        $( function() {
+            $( "#datepicker2" ).datepicker({
+                dateFormat: 'dd-mm-yy'
+            });
+        } );
+
     </script>
 </body>
 

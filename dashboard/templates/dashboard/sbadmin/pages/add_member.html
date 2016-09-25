@@ -14,7 +14,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Please enter basic information to add new members
+                        Please enter basic information to add a new member
                     </div>
                     {{ form.errors }}
                     {{ form.non_field_errors }}
@@ -32,37 +32,58 @@
                                     </div>
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input class="form-control" placeholder="Example: Reto" name="vorname">
+                                        <input class="form-control" placeholder="Reto" name="vorname">
                                     </div>
                                     <div class="form-group">
                                         <label>Family Name</label>
-                                        <input class="form-control" placeholder="Example: Steiger" name="name">
+                                        <input class="form-control" placeholder="Steiger" name="name">
                                     </div>
+
+                                    <div class="form-group"> <!-- Street 1 -->
+                                        <label for="street1_id" class="control-label">Street Address 1</label>
+                                        <input type="text" class="form-control" id="street1_id" name="street1" placeholder="Street address, P.O. box, company name, c/o">
+                                    </div>
+
+                                    <div class="form-group"> <!-- Street 2 -->
+                                        <label for="street2_id" class="control-label">Street Address 2</label>
+                                        <input type="text" class="form-control" id="street2_id" name="street2" placeholder="Apartment, suite, unit, building, floor, etc.">
+                                    </div>
+
+                                    <div class="form-group"> <!-- City-->
+                                        <label for="city_id" class="control-label">City</label>
+                                        <input type="text" class="form-control" id="city_id" name="city" placeholder="Smallville">
+                                    </div>
+
+                                    <div class="form-group"> <!-- Zip Code-->
+                                        <label for="zip_id" class="control-label">Post Code</label>
+                                        <input type="text" class="form-control" id="zip_id" name="zip" placeholder="#####">
+                                    </div>
+
                                     <div class="form-group">
-                                        <label>Address</label>
-                                        <input class="form-control" placeholder="Example: Zentrum 3, 8105 Regensdorf" name="uuid">
+                                        <label>Email Address</label>
+                                        <input type="email" class="form-control" placeholder="name@domain.com" name="email_name">
                                     </div>
-                                    <div class="form-group">
-                                        <label>Card number</label>
-                                        <input class="form-control" placeholder="Example: 123456789" name="uuid">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email address</label>
-                                        <input class="form-control" placeholder="" name="email">
-                                    </div>
+
                                     <div class="form-group">
                                         <label>Mobile</label>
                                         <input class="form-control" placeholder="" name="mobile">
                                     </div>
+
                                     <div class="form-group">
                                         <label>Birthday</label>
                                         <div class='input-group date'>
-                                            <input type='text' class="form-control" id='datepicker'/>
+                                            <input type='text' class="form-control" id='datepicker' name="bday"/>
                                             <span class="input-group-addon">
                                               <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label>Gym Card Number</label>
+                                        <input class="form-control" placeholder="123456789" name="uuid">
+                                    </div>
+
                                     <div class="form-group">
                                         <label>Student Discount</label>
                                         <label class="radio-inline">
@@ -85,8 +106,19 @@
                                             {% endfor %}
                                         </select>
                                     </div>
+
                                     <div class="form-group">
-                                        <label>Payment period</label>
+                                        <label>Membership Start Day</label>
+                                        <div class='input-group date'>
+                                            <input type='text' class="form-control" id='datepicker2' name="mday"/>
+                                            <span class="input-group-addon">
+                                              <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Payment Period</label>
                                         {% for payment in payment_list %}
                                             <div class="radio">
                                                 <label>
@@ -96,7 +128,7 @@
                                         {% endfor %}
                                     </div>
                                     <div class="form-group">
-                                        <label>Fight teams</label>
+                                        <label>Fight Teams</label>
                                         {% for ft in team_list %}
                                             <div class="checkbox">
                                                 <label class="checkbox">
@@ -106,7 +138,7 @@
                                         {% endfor %}
                                     </div>
                                     <div class="form-group">
-                                        <label>Gym activities</label>
+                                        <label>Gym Activities</label>
                                         {% for activity in acitiviy_list %}
                                             <div class="checkbox">
                                                 <label class="checkbox">
