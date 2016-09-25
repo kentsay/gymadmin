@@ -12,7 +12,9 @@
     <title>ezGymManage</title>
     {% load static %}
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/vendor/bootstrap/css/bootstrap.min.css' %}" />
+    <link href="{% static 'dashboard/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- JQuery UI CSS -->
+    <link href="{% static 'dashboard/dist/css/jquery-ui.css' %}" rel="stylesheet">
     <!-- MetisMenu CSS -->
     <link href="{% static 'dashboard/vendor/metisMenu/metisMenu.min.css' %}" rel="stylesheet">
     <!-- Custom CSS -->
@@ -93,13 +95,6 @@
                                 </li>
                             </ul>
                         </li>
-                        <!--
-                        <li>
-                            <a href="tables"><i class="fa fa-table fa-fw"></i> Tables</a>
-                        </li>
-                        <li>
-                            <a href="forms"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>-->
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Admin<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -129,6 +124,7 @@
     <!-- jQuery -->
     {% load static %}
     <script src="{% static 'dashboard/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/jquery/jquery-ui.js' %}"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static 'dashboard/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
     <!-- Metis Menu Plugin JavaScript -->
@@ -139,7 +135,14 @@
     <script src="{% static 'dashboard/data/morris-data.js' %}"></script>
     <!-- Custom Theme JavaScript -->
     <script src="{% static 'dashboard/dist/js/sb-admin-2.js' %}"></script>
-
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+            });
+        } );
+    </script>
 </body>
 
 </html>
