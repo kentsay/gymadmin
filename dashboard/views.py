@@ -48,7 +48,7 @@ def members_add(request):
         form = MembersForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('add_members')
+            return HttpResponseRedirect('members')
         else:
             print form.errors
     else:
