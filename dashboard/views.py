@@ -43,6 +43,15 @@ def members(request):
 
 
 @login_required
+def members_detail(request):
+    member_list = Members.objects.get(id=request.GET['id'])
+    context = {
+        'members': member_list,
+    }
+    return render(request, 'dashboard/sbadmin/pages/members_detail.html', context)
+
+
+@login_required
 def members_add(request):
     if request.method == 'POST':
         form = MembersForm(request.POST)

@@ -40,13 +40,8 @@
                                     </div>
 
                                     <div class="form-group"> <!-- Street 1 -->
-                                        <label for="street1_id" class="control-label">Street Address 1</label>
+                                        <label for="street1_id" class="control-label">Street Address</label>
                                         <input type="text" class="form-control" id="street1_id" name="street1" placeholder="Street address, P.O. box, company name, c/o">
-                                    </div>
-
-                                    <div class="form-group"> <!-- Street 2 -->
-                                        <label for="street2_id" class="control-label">Street Address 2</label>
-                                        <input type="text" class="form-control" id="street2_id" name="street2" placeholder="Apartment, suite, unit, building, floor, etc.">
                                     </div>
 
                                     <div class="form-group"> <!-- City-->
@@ -84,15 +79,6 @@
                                         <input class="form-control" placeholder="123456789" name="uuid">
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Student Discount</label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="stu_discount" id="optionsRadiosInline1" value="yes">Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="stu_discount" id="optionsRadiosInline2" value="no">No
-                                        </label>
-                                    </div>
                                     <button type="submit" class="btn btn-primary" value="submit">Submit Button</button>
                                     <button type="reset" class="btn btn-danger" value="reset">Reset Button</button>
                                 </div>
@@ -127,6 +113,12 @@
                                             </div>
                                         {% endfor %}
                                     </div>
+
+                                    <div class="form-group">
+                                        <label>Student Discount</label>
+                                        <input type="checkbox" name="stu_discount" data-toggle="toggle" data-size="mini">
+                                    </div>
+
                                     <div class="form-group">
                                         <label>Fight Teams</label>
                                         {% for ft in team_list %}
