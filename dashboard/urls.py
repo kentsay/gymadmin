@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^gymadmin', views.gymadmin, name='gymadmin'),
     url(r'^members$', views.members, name='members'),
     url(r'^members_detail$', views.members_detail, name='members_detail'),
+    url(r'^members_delete$', views.members_delete, name='members_delete'),
     url(r'^add_member$', views.members_add, name='members_add'),
     url(r'^edit_member$', views.members_edit, name='members_edit'),
 

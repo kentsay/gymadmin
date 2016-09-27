@@ -81,6 +81,12 @@ def members_add(request):
     return render(request, 'dashboard/sbadmin/pages/add_member.html', context)
 
 
+@login_required()
+def members_delete(request):
+    Members.objects.get(id=request.GET['id']).delete()
+    return HttpResponseRedirect('members')
+
+
 @login_required
 def members_edit(request):
     return render(request, 'dashboard/sbadmin/pages/edit_members.html')

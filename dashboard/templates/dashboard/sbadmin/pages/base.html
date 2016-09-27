@@ -127,6 +127,7 @@
     <script src="{% static 'dashboard/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'dashboard/vendor/jquery/jquery-ui.js' %}"></script>
     <script src="{% static 'dashboard/vendor/bootstrap/js/bootstrap-toggle.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/bootstrap/js/confirm-bootstrap.js' %}"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static 'dashboard/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
     <!-- Metis Menu Plugin JavaScript -->
@@ -144,15 +145,28 @@
                 changeYear: true,
                 dateFormat: 'yy-mm-dd'
             });
-        } );
+        });
 
         $( function() {
             $( "#datepicker2" ).datepicker({
                 dateFormat: 'yy-mm-dd'
             });
-        } );
+        });
+
+        $( function () {
+            $( ".btn-delete").confirmModal({
+                confirmTitle     : 'Please confirm',
+                confirmMessage   : 'Are you sure you want to delete this data?',
+                confirmOk        : 'Yes',
+                confirmCancel    : 'Cancel',
+                confirmStyle     : 'primary',
+                confirmDismiss   : true,
+                confirmAutoOpen  : false
+            });
+        });
 
     </script>
+
 </body>
 
 </html>
