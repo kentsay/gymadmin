@@ -5,7 +5,6 @@ from django.db import models
 class Gym(models.Model):
     name = models.CharField(max_length=200)
     address = models.CharField(max_length=400)
-    # votes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name + ": " + self.address
@@ -16,19 +15,18 @@ class Members(models.Model):
     name = models.CharField(max_length=200)
     vorname = models.CharField(max_length=200)
     street1 = models.CharField(max_length=200)
-    street2 = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=50)
     postcode = models.CharField(max_length=10)
-    email_name = models.CharField(max_length=50, null=True)
+    email_name = models.EmailField()
     mobile = models.CharField(max_length=50)
     uuid = models.CharField(max_length=200, unique=True, null=True)
     birth_date = models.DateField(null=True)
     join_date = models.DateField(null=True)
-    stu_discount = models.CharField(max_length=5)
+    stu_discount = models.CharField(max_length=5, default="no")
     gym_plan = models.CharField(max_length=50)
     payment_period = models.IntegerField(default=12)
-    teams = models.CharField(max_length=200, null=True)
-    gym_act = models.CharField(max_length=500, null=True)
+    teams = models.CharField(max_length=200, null=True, blank=True)
+    gym_act = models.CharField(max_length=500, null=True, blank=True)
 
     def __str__(self):
         return '{} {}'.format(self.vorname, self.name)
@@ -79,3 +77,13 @@ class FightTeam(models.Model):
 
     def __str__(self):
         return '{}'.format(self.team)
+
+
+class PaymentRecord(models.Model):
+    uid = models.ForeignKey(Members)
+    period = models.CharField(max_length=300)
+    member_fee = models.FloatField(default=0)
+    pay_status = models.BooleanField(default=None)
+
+    def __str__(self):
+        return '{}: {}'.format(self.uid, self.period)
