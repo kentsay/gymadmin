@@ -2,9 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 from .members_form import MembersForm
-from .models import Gym, Members, GymPlan, PaymentPeriod, GymActivity, FightTeam
+from .models import *
+
+from utils import PaymentGenerator
 
 
 @login_required
@@ -34,7 +37,13 @@ def gymadmin(request):
 
 @login_required
 def members(request):
+    query = request.GET.get("q", None)
     member_list = Members.objects.all()
+    if query is not None:
+        member_list = member_list.filter(
+            Q(vorname__icontains=query) |
+            Q(name__icontains=query)
+        )
     context = {
         'members': member_list,
         'count': len(member_list),
@@ -57,11 +66,13 @@ def members_add(request):
         form = MembersForm(request.POST)
         if form.is_valid():
             form.save()
+            m = Members.objects.get(uuid=form.cleaned_data['uuid'])
+            # auto generate the payment record from the join date to current date
+            PaymentGenerator.generateRecord(m)
             return HttpResponseRedirect('members')
         else:
             print form.errors
     else:
-        print "leider, didn't even post"
         form = MembersForm()
 
     gym_list = Gym.objects.all()
@@ -102,3 +113,9 @@ def gym(request, gym_id):
 def member(request, member_id):
     response = "You're looking at member %s."
     return HttpResponse(response % member_id)
+
+
+@login_required
+def payment_record(request):
+    # everytime when someone open this page, generate the payment record
+    return render(request, 'dashboard/sbadmin/pages/edit_members.html')
