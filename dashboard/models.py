@@ -81,9 +81,11 @@ class FightTeam(models.Model):
 
 class PaymentRecord(models.Model):
     uid = models.ForeignKey(Members)
-    period = models.CharField(max_length=300)
+    invoice_number = models.CharField(max_length=10)
+    begin_period = models.DateField(auto_now=False)
+    end_period = models.DateField(auto_now=False)
     member_fee = models.FloatField(default=0)
     pay_status = models.BooleanField(default=None)
 
     def __str__(self):
-        return '{}: {}'.format(self.uid, self.period)
+        return '{}: {}-{}'.format(self.uid, self.begin_period, self.end_period)

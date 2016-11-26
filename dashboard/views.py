@@ -42,8 +42,11 @@ def members(request):
     if query is not None:
         member_list = member_list.filter(
             Q(vorname__icontains=query) |
-            Q(name__icontains=query)
+            Q(name__icontains=query) |
+            Q(street1__icontains=query) |
+            Q(email_name__icontains=query)
         )
+
     context = {
         'members': member_list,
         'count': len(member_list),
@@ -118,4 +121,13 @@ def member(request, member_id):
 @login_required
 def payment_record(request):
     # everytime when someone open this page, generate the payment record
-    return render(request, 'dashboard/sbadmin/pages/edit_members.html')
+    member_list = Members.objects.all()
+    for member in member_list:
+        PaymentGenerator.generateRecord(member)
+
+    payment_list = PaymentRecord.objects.all()
+    context = {
+        'payments': payment_list,
+        'count': len(payment_list),
+    }
+    return render(request, 'dashboard/sbadmin/pages/payments.html', context)

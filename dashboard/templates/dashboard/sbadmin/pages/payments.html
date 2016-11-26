@@ -1,0 +1,69 @@
+{% extends 'dashboard/sbadmin/pages/base.html' %}
+
+{% block content %}
+    <div id="page-wrapper" xmlns="http://www.w3.org/1999/html">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Payment Records</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        You can view all the payment records here
+                    </div>
+                    <!-- /.panel-heading -->
+
+                    <div class="panel-body">
+                        <form method="get" action="members">
+                        <div class="input-group custom-search-form">
+                            <input type="text" name="q" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                        </form>
+                        <table width="100%" class="table table-striped table-hover" id="dataTables-example">
+                            <thead>
+                            <tr>
+                                <th>Member</th>
+                                <th>Invoice Number</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Member Fee</th>
+                                <th>Status</th>
+                                <th>Pay Now</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for payment in payments %}
+                            <tr class="odd gradeX">
+                                <td>{{ payment.uid }}</td>
+                                <td>{{ payment.invoice_number }}</td>
+                                <td>{{ payment.begin_period }}</td>
+                                <td>{{ payment.end_period }}</td>
+                                <td>{{ payment.member_fee }}</td>
+                                <td>{{ payment.pay_status }}</td>
+                                <td><a class="btn btn-default btn-outline btn-primary" href="members_detail?id={{ payment.id }}">Pay</a></td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
+
+{% endblock %}
