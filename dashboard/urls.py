@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^edit_member$', views.members_edit, name='members_edit'),
     url(r'^payments$', views.payment_record, name='payment_record'),
     url(r'^checkin$', views.members_checkin, name='members_checkin'),
+    url(r'^viewcheckin$', views.members_viewcheckin, name='members_viewcheckin'),
 
     # ex: /polls/5/
     url(r'^(?P<gym_id>[0-9]+)/gym/$', views.gym, name='gym'),

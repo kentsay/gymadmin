@@ -154,6 +154,16 @@ def members_checkin(request):
 
 
 @login_required
+def members_viewcheckin(request):
+    current_members = GymCheckin.objects.all()
+    context = {
+        "member_list": current_members,
+        "total_members": len(current_members)
+    }
+    return render(request, 'dashboard/sbadmin/pages/view_checkin.html', context)
+
+
+@login_required
 def payment_record(request):
     # every time when someone open this page, generate the payment record
     # TODO: change this into a cron job
