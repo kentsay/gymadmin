@@ -1,3 +1,4 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -121,18 +122,41 @@ def member(request, member_id):
 
 @login_required
 def members_checkin(request):
-    form = MembersCheckinForm(request.POST or None)
-    if form.is_valid():
-        print form.cleaned_data
-        form.save()
+    if request.method == 'POST':
+        form = MembersCheckinForm(request.POST)
+        if form.is_valid():
+            # check if gym_id exists in user table
+            try:
+                member = Members.objects.get(uuid=request.POST['gym_id'])
+            except ObjectDoesNotExist:
+                member = None
+
+            if member is not None:
+                form.save()
+                return HttpResponseRedirect('checkin')
+            else:
+                form.add_error("gym_id", "Gym ID does not exists! Please enter again.")
+            # if form.has_error:
+            #     data = form.errors.iteritems()
+            #     for key, value in data:
+            #         error_str = "{field}: {error}".format(
+            #             field=key,
+            #             error=value.as_text()
+            #         )
+            #         print error_str
+        else:
+            print form.errors
+
     else:
-        print form.errors
+        form = MembersCheckinForm()
 
     return render(request, 'dashboard/sbadmin/pages/checkin.html', {'form': form})
 
+
 @login_required
 def payment_record(request):
-    # everytime when someone open this page, generate the payment record
+    # every time when someone open this page, generate the payment record
+    # TODO: change this into a cron job
     member_list = Members.objects.all()
     for member in member_list:
         PaymentGenerator.generateRecord(member)

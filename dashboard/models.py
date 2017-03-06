@@ -31,6 +31,7 @@ class Members(models.Model):
     def __str__(self):
         return '{} {}'.format(self.vorname, self.name)
 
+
 class MembersPhoto(models.Model):
     member_pic = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
 
@@ -38,7 +39,7 @@ class MembersPhoto(models.Model):
 class GymCheckin(models.Model):
     gym_id = models.CharField(max_length=200, unique=True, null=False)
     checkin_time = models.DateTimeField(auto_now=True, auto_now_add=False)
-    status = models.BooleanField(default=True)
+    status = models.BooleanField()
 
     def __str__(self):
         return 'ID: {}, Checkin: {}, Status: {}'.format(self.gym_id, self.checkin_time, self.status)
