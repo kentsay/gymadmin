@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 from .members_form import MembersForm
+from .checkin_form import MembersCheckinForm
 from .models import *
 
 from utils import PaymentGenerator
@@ -117,6 +118,21 @@ def member(request, member_id):
     response = "You're looking at member %s."
     return HttpResponse(response % member_id)
 
+
+@login_required
+def members_checkin(request):
+    if request.method == 'POST':
+        form = MembersCheckinForm(request.POST)
+        if form.is_valid():
+            print form.cleaned_data
+            form.save()
+            # m = Members.objects.get(uuid=form.cleaned_data['uuid'])
+        else:
+            print form.errors
+    else:
+        form = MembersForm()
+
+    return render(request, 'dashboard/sbadmin/pages/checkin.html', {'form': form})
 
 @login_required
 def payment_record(request):

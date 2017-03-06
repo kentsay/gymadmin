@@ -1,0 +1,62 @@
+{% extends 'dashboard/sbadmin/pages/base.html' %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Gym Members Checkin</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Please checkin before you enter the gym
+                    </div>
+                    <!-- /.panel-heading -->
+
+                    <div class="panel-body">
+                        <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#checkin" data-toggle="tab">Checkin</a>
+                                </li>
+                                <li><a href="#report" data-toggle="tab">Report</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="checkin">
+                                  <br/>
+                                  <form role="form" action="checkin" method="post">{% csrf_token %}
+                                    <div class="input-group">
+                                      <span class="input-group-addon" id="sizing-addon2">ID</span>
+                                      {{form.gym_id}}
+                                    </div>
+                                    <br/>
+                                    <button type="submit" class="btn btn-primary" value="submit">Checkin</button>
+                                  </form>
+                                </div>
+
+                                <div class="tab-pane fade" id="report">
+                                  <br>
+                                  <div class="col-md-3">
+                                    <span class="chat-img pull-left">
+                                      <img src="https://placeholdit.imgix.net/~text?txtsize=6&bg=55c1e7&txtclr=ffffff&txt=50%C3%9750&w=140&h=140" alt="Ken Tsay" class="img-circle" />
+                                    <span/>
+                                  </div>
+                                </div>
+                            </div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
+{% endblock %}
