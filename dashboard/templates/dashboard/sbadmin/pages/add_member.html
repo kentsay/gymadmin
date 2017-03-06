@@ -124,7 +124,7 @@
                                         {% for ft in team_list %}
                                             <div class="checkbox">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" name="teams" value={{ ft.team }}>{{ ft.team }}
+                                                    <input type="checkbox" name="teams[]" value={{ ft.team }}>{{ ft.team }}
                                                 </label>
                                             </div>
                                         {% endfor %}
@@ -134,7 +134,7 @@
                                         {% for activity in acitiviy_list %}
                                             <div class="checkbox">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" name="gym_act" value="{{ activity.name }}">{{ activity.name }}
+                                                    <input type="checkbox" name="gym_act[]" value="{{ activity.name }}">{{ activity.name }}
                                                 </label>
                                             </div>
                                         {% endfor %}
