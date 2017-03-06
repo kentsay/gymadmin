@@ -121,16 +121,12 @@ def member(request, member_id):
 
 @login_required
 def members_checkin(request):
-    if request.method == 'POST':
-        form = MembersCheckinForm(request.POST)
-        if form.is_valid():
-            print form.cleaned_data
-            form.save()
-            # m = Members.objects.get(uuid=form.cleaned_data['uuid'])
-        else:
-            print form.errors
+    form = MembersCheckinForm(request.POST or None)
+    if form.is_valid():
+        print form.cleaned_data
+        form.save()
     else:
-        form = MembersForm()
+        print form.errors
 
     return render(request, 'dashboard/sbadmin/pages/checkin.html', {'form': form})
 
