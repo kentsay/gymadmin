@@ -51,14 +51,14 @@
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-gear fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <!-- <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
-                        <li class="divider"></li>
+                        <li class="divider"></li> -->
                         <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -71,7 +71,8 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
+                        
+                        <!-- <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
@@ -80,44 +81,42 @@
                                 </button>
                                 </span>
                             </div>
-                            <!-- /input-group -->
+                        </li> -->
+
+                        <li>
+                            <a href="index"><i class="fa fa-bars fa-fw"></i> Gym</a>
                         </li>
                         <li>
-                            <a href="index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Reports<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-print fa-fw"></i> Berichte<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Gym</a>
+                                    <a href="#">Einnahmen</a>
                                 </li>
                                 <li>
-                                    <a href="#">Gym Members</a>
+                                    <a href="#">Mitgliedsbericht</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Admin<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-gears fa-fw"></i> Verwaltung<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                              
                                 <li>
-                                    <a href="gymadmin">Gym Admin</a>
-                                </li>
-                                <li>
-                                    <a href="#">Members<span class="fa arrow"></span></a>
+                                    <a href="#">Mitglieder<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="members">View All Members</a>
+                                            <a href="members">Alle Mitglieder</a>
                                         </li>
                                         <li>
-                                            <a href="add_member">Add New Members</a>
+                                            <a href="add_member">Mitglied Hinzufugen</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#">Payments<span class="fa arrow"></span></a>
+                                    <a href="#">Zahlungen<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="payments">View All Payments</a>
+                                            <a href="payments">Alle Einzahlungen</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -126,13 +125,13 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Gym checkin<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-th fa-fw"></i> Gym Check-In<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="checkin">Check In</a>
+                                    <a href="checkin">Check-In</a>
                                 </li>
                                 <li>
-                                    <a href="viewcheckin">View Current Members</a>
+                                    <a href="viewcheckin">Heute Im Gym</a>
                                 </li>
                             </ul>
                         </li>
