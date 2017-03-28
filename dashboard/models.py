@@ -18,22 +18,18 @@ class Members(models.Model):
     city = models.CharField(max_length=50)
     postcode = models.CharField(max_length=10)
     email_name = models.EmailField()
-    mobile = models.CharField(max_length=50)
+    mobile = models.CharField(max_length=50, blank=True)
     uuid = models.CharField(max_length=200, unique=True, null=False)
-    birth_date = models.DateField(null=True)
-    join_date = models.DateField(null=True)
-    stu_discount = models.CharField(max_length=5, default="no")
+    birth_date = models.DateField(null=True, blank=True)
+    join_date = models.DateField()
     gym_plan = models.CharField(max_length=50)
     payment_period = models.IntegerField(default=12)
     teams = models.CharField(max_length=200, null=True, blank=True)
     gym_act = models.CharField(max_length=500, null=True, blank=True)
+    member_pic = models.ImageField(upload_to='images/', null=True)
 
     def __str__(self):
         return '{} {}'.format(self.vorname, self.name)
-
-
-class MembersPhoto(models.Model):
-    member_pic = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
 
 
 class GymCheckin(models.Model):

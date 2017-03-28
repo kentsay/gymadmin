@@ -20,7 +20,7 @@
                     {{ form.non_field_errors }}
                     <div class="panel-body">
                         <div class="row">
-                            <form role="form" action="add_member" method="post">{% csrf_token %}
+                            <form role="form" action="add_member" method="post" enctype="multipart/form-data">{% csrf_token %}
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Gym Name</label>
@@ -138,6 +138,50 @@
                                             </div>
                                         {% endfor %}
                                     </div> -->
+                                    <div class="form-group">
+                                        <label>Photo</label>
+                                        <div>
+                                            <input id="member_pic" type="file" class="" name="member_pic">
+                                            <br/>
+                                        </div>
+                                        <div>
+                                            <video id="video" width="320" height="240" autoplay></video>
+                                        </div>
+                                        <button id="snap" type="button">Snap Photo</button>
+                                        <div>
+                                            <canvas id="canvas" width="320" height="240"></canvas>
+                                        </div>
+                                        <script>
+                                            // Grab elements, create settings, etc.
+                                            var video = document.getElementById('video');
+
+                                            // Get access to the camera!
+                                            if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                                                // Not adding `{ audio: true }` since we only want video now
+                                                navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+                                                    video.src = window.URL.createObjectURL(stream);
+                                                    video.play();
+                                                });}
+
+                                            // Elements for taking the snapshot
+                                            var canvas = document.getElementById('canvas');
+                                            var context = canvas.getContext('2d');
+                                            var video = document.getElementById('video');
+
+                                            // Trigger photo take
+                                            document.getElementById("snap").addEventListener("click", function() {
+                                                context.drawImage(video, 0, 0, 320, 240);
+                                            });
+                                        </script>
+                                        <a id="downloadLnk" download="YourFileName.jpg">Download as image</a>
+                                        <script>
+                                            function download() {
+                                                var dt = canvas.toDataURL('image/jpeg');
+                                                this.href = dt;
+                                            };
+                                            downloadLnk.addEventListener('click', download, false);
+                                        </script>
+                                    </div>
 
                                     <button type="submit" class="btn btn-primary" value="submit">Speichern</button>
                                     <button type="reset" class="btn btn-danger" value="reset">Abbrechen</button>

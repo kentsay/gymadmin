@@ -68,7 +68,8 @@ def members_detail(request):
 @login_required
 def members_add(request):
     if request.method == 'POST':
-        form = MembersForm(request.POST)
+        form = MembersForm(request.POST, request.FILES)
+        print request.FILES['member_pic']
         if form.is_valid():
             form.save()
             m = Members.objects.get(uuid=form.cleaned_data['uuid'])
