@@ -154,7 +154,6 @@
                                             </span>
                                                     </div>
                                                 </div>
-
                                                 <div class="form-group">
                                                     <label>Gym ID</label>
                                                     <input class="form-control" placeholder="123456789" name="uuid" value="{{ members.uuid }}">
@@ -222,6 +221,13 @@
                                                 <div>
                                                     <button type="submit" class="btn btn-primary" value="submit">Speichern</button>
                                                     <button type="reset" class="btn btn-danger" value="reset">Abbrechen</button>
+                                                <div class="form-group">
+                                                    <label>Photo</label>
+                                                    <div>
+                                                        <div>Current: {{ members.member_pic }} </div>
+                                                        <input id="member_pic" type="file"  name="member_pic">
+                                                        <br/>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </form>
