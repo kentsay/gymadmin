@@ -4,7 +4,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Gym Members</h1>
+                <h1 class="page-header">Mitglied Information</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -13,20 +13,20 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        View member detail information
+                        Mitglied Detailangaben
                     </div>
                     <!-- /.panel-heading -->
 
                     <div class="panel-body">
                         <!-- Nav tabs -->
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#profile" data-toggle="tab">Profile</a>
+                                <li class="active"><a href="#profile" data-toggle="tab">Profil</a>
                                 </li>
-                                <li><a href="#gym" data-toggle="tab">Gym</a>
+                                <li><a href="#gym" data-toggle="tab">Vertrag</a>
                                 </li>
-                                <li><a href="#billing" data-toggle="tab">Billing</a>
+                                <li><a href="#billing" data-toggle="tab">Zahlungen</a>
                                 </li>
-                                <li><a href="#setting" data-toggle="tab">Setting</a></li>
+                                <li><a href="#setting" data-toggle="tab">Bearbeiten</a></li>
                             </ul>
 
                             <!-- Tab panes -->
@@ -40,19 +40,19 @@
                                                 <td>{{ members.vorname }} {{ members.name }}</td>
                                             </tr>
                                             <tr>
-                                                <td class="col-md-1" align="left"><strong>Age</strong></td>
+                                                <td class="col-md-1" align="left"><strong>Geburtsdatum</strong></td>
                                                 <td>{{ members.birth_date }}</td>
                                             </tr>
                                             <tr>
-                                                <td class="col-md-1" align="left"><strong>Address</strong></td>
+                                                <td class="col-md-1" align="left"><strong>Wohnadresse</strong></td>
                                                 <td>{{ members.street1}}, {{ members.city }}, {{ members.postcode }}</td>
                                             </tr>
                                             <tr>
-                                                <td class="col-md-1" align="left"><strong>Email</strong></td>
+                                                <td class="col-md-1" align="left"><strong>Email Adresse</strong></td>
                                                 <td><a href="mailto:{{ members.email_name }}">{{ members.email_name }}</a></td>
                                             </tr>
                                             <tr>
-                                                <td class="col-md-1" align="left"><strong>Mobile</strong></td>
+                                                <td class="col-md-1" align="left"><strong>Telefon Nr.</strong></td>
                                                 <td>{{ members.mobile }}</td>
                                             </tr>
                                             <tr>
@@ -75,23 +75,30 @@
                                     <table class="table table-hover table-condensed">
                                         <tbody>
                                         <tr>
-                                            <td class="col-md-1" align="left"><strong>Plan</strong></td>
+                                            <td class="col-md-1" align="left"><strong>Abonement</strong></td>
                                             <td>{{ members.gym_plan }}</td>
                                         </tr>
                                         <tr>
-                                            <td class="col-md-1" align="left"><strong>Start Date</strong></td>
+                                            <td class="col-md-1" align="left"><strong>Vertragsabschluss</strong></td>
                                             <td>{{ members.join_date }}</td>
                                         </tr>
                                         <tr>
-                                            <td class="col-md-1" align="left"><strong>Payment Period</strong></td>
-                                            <td>{{ members.payment_period }}</td>
+                                            <td class="col-md-1" align="left"><strong>Vertragsdauer</strong></td>
+                                            <td>{{ members.payment_period }} Monat(e)</td>
                                         </tr>
+<<<<<<< Updated upstream
+=======
+                                        <!-- <tr>
+                                            <td class="col-md-1" align="left"><strong>Student</strong></td>
+                                            <td>{{ members.stu_discount }}</td>
+                                        </tr> -->
+>>>>>>> Stashed changes
                                         </tbody>
                                     </table>
                                 </div>
 
                                 <div class="tab-pane fade" id="billing">
-                                    <h4>Billing Information</h4>
+                                    <h4>Zahlungen</h4>
 
                                 </div>
                                 <div class="tab-pane fade" id="setting">
@@ -100,7 +107,7 @@
                                         <form role="form" action="edit_member?id={{ members.id }}$" method="post">{% csrf_token %}
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label>Select Gym</label>
+                                                    <label>Gym Auswahl</label>
                                                     <select class="form-control" name="gym">
                                                         {% for id,gym in gym_list %}
                                                             <option value={{id}}>{{id}} {{gym.name}}</option>
@@ -108,41 +115,41 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>First Name</label>
+                                                    <label>Vorname</label>
                                                     <input class="form-control" placeholder="John" name="vorname" value="{{ members.vorname}}">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Family Name</label>
+                                                    <label>Name</label>
                                                     <input class="form-control" placeholder="Doe" name="name" value="{{ members.name }}">
                                                 </div>
 
                                                 <div class="form-group"> <!-- Street 1 -->
-                                                    <label for="street1_id" class="control-label">Street Address</label>
+                                                    <label for="street1_id" class="control-label">Strasse u. Hausnummer</label>
                                                     <input type="text" class="form-control" id="street1_id" name="street1" placeholder="Street address, P.O. box, company name, c/o" value="{{ members.street1 }}">
                                                 </div>
 
                                                 <div class="form-group"> <!-- City-->
-                                                    <label for="city_id" class="control-label">City</label>
+                                                    <label for="city_id" class="control-label">Ort</label>
                                                     <input type="text" class="form-control" id="city_id" name="city" placeholder="Smallville" value="{{ members.city }}">
                                                 </div>
 
                                                 <div class="form-group"> <!-- Zip Code-->
-                                                    <label for="zip_id" class="control-label">Post Code</label>
+                                                    <label for="zip_id" class="control-label">PLZ</label>
                                                     <input type="text" class="form-control" id="zip_id" name="postcode" placeholder="#####" value="{{ members.postcode }}">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label>Email Address</label>
+                                                    <label>Email Adresse</label>
                                                     <input type="email" class="form-control" placeholder="name@domain.com" name="email_name" value="{{ members.email_name }}">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label>Mobile</label>
+                                                    <label>Telefon Nummer</label>
                                                     <input class="form-control" placeholder="" name="mobile" value="{{ members.mobile }}">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label>Birthday</label>
+                                                    <label>Geburtsdatum</label>
                                                     <div class='input-group date'>
                                                         <input type='text' class="form-control" id='datepicker' name="birth_date" value="{{ members.birth_date }}">
                                                         <span class="input-group-addon">
@@ -152,17 +159,14 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label>Gym Card Number</label>
+                                                    <label>Gym ID</label>
                                                     <input class="form-control" placeholder="123456789" name="uuid" value="{{ members.uuid }}">
                                                 </div>
-
-                                                <button type="submit" class="btn btn-primary" value="submit">Submit Button</button>
-                                                <button type="reset" class="btn btn-danger" value="reset">Reset Button</button>
                                             </div>
                                             <!-- /.col-lg-6 (nested) -->
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label>Select Plan</label>
+                                                    <label>Abonement Auswahl</label>
                                                     <select class="form-control" name="gym_plan">
                                                         {% for plan in plan_list %}
                                                             <option value={{plan.name}}>{{plan.name}}</option>
@@ -171,7 +175,7 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label>Membership Start Day</label>
+                                                    <label>Datum Vertragsabschluss</label>
                                                     <div class='input-group date'>
                                                         <input type='text' class="form-control" id='datepicker2' name="join_date" value="{{ members.join_date }}">
                                                         <span class="input-group-addon">
@@ -181,7 +185,7 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label>Payment Period</label>
+                                                    <label>Vertragsdauer</label>
                                                     {% for payment in payment_list %}
                                                         <div class="radio">
                                                             <label>
@@ -191,8 +195,18 @@
                                                     {% endfor %}
                                                 </div>
 
+<<<<<<< Updated upstream
                                                 <div class="form-group">
                                                     <label>Fight Teams</label>
+=======
+                                                <!-- <div class="form-group">
+                                                    <label>Student Discount</label>
+                                                    <input type="checkbox" name="stu_discount" data-toggle="toggle" data-size="mini" >
+                                                </div> -->
+
+                                                <div class="form-group">
+                                                    <label>Mitglied Fight Team</label>
+>>>>>>> Stashed changes
                                                     {% for ft in team_list %}
                                                         <div class="checkbox">
                                                             <label class="checkbox">
@@ -201,7 +215,7 @@
                                                         </div>
                                                     {% endfor %}
                                                 </div>
-                                                <div class="form-group">
+                                                <!-- <div class="form-group">
                                                     <label>Gym Activities</label>
                                                     {% for activity in acitiviy_list %}
                                                         <div class="checkbox">
@@ -210,6 +224,10 @@
                                                             </label>
                                                         </div>
                                                     {% endfor %}
+                                                </div> -->
+                                                <div>
+                                                    <button type="submit" class="btn btn-primary" value="submit">Speichern</button>
+                                                    <button type="reset" class="btn btn-danger" value="reset">Abbrechen</button>
                                                 </div>
                                             </div>
                                         </form>
