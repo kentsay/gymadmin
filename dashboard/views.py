@@ -157,8 +157,12 @@ def members_checkin(request):
 @login_required
 def members_viewcheckin(request):
     current_members = GymCheckin.objects.all()
+    id_list = []
+    for member in current_members:
+        id_list.append(member.gym_id)
+    member = Members.objects.filter(uuid__in=id_list)
     context = {
-        "member_list": current_members,
+        "member_list": member,
         "total_members": len(current_members)
     }
     return render(request, 'dashboard/sbadmin/pages/view_checkin.html', context)

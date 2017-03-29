@@ -59,6 +59,13 @@
                                                 <td class="col-md-1" align="left"><strong>Gym ID</strong></td>
                                                 <td>{{ members.uuid }}</td>
                                             </tr>
+                                            <tr>
+                                                <td class="col-md-1" align="left"><strong>Photo</strong></td>
+                                                <td>
+                                                    <img src={{ members.member_pic.url }} width="320" height="240"/>
+
+                                                </td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -78,10 +85,6 @@
                                         <tr>
                                             <td class="col-md-1" align="left"><strong>Payment Period</strong></td>
                                             <td>{{ members.payment_period }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1" align="left"><strong>Student</strong></td>
-                                            <td>{{ members.stu_discount }}</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -186,11 +189,6 @@
                                                             </label>
                                                         </div>
                                                     {% endfor %}
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Student Discount</label>
-                                                    <input type="checkbox" name="stu_discount" data-toggle="toggle" data-size="mini" >
                                                 </div>
 
                                                 <div class="form-group">

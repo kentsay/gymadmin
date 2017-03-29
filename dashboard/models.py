@@ -26,7 +26,7 @@ class Members(models.Model):
     payment_period = models.IntegerField(default=12)
     teams = models.CharField(max_length=200, null=True, blank=True)
     gym_act = models.CharField(max_length=500, null=True, blank=True)
-    member_pic = models.ImageField(upload_to='images/', null=True)
+    member_pic = models.ImageField(upload_to='images/', default='images/no-image-available.jpg')
 
     def __str__(self):
         return '{} {}'.format(self.vorname, self.name)

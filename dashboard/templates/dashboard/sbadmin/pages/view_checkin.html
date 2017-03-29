@@ -22,7 +22,7 @@
                         {% for member in member_list %}
                             <div class="col-md-3">
                                 <span class="chat-img pull-left">
-                                <img src="https://placeholdit.imgix.net/~text?txtsize=6&bg=55c1e7&txtclr=ffffff&txt=50%C3%9750&w=140&h=140" alt="Ken Tsay" class="img-circle" />
+                                    <img src={{ member.member_pic.url }} width="320" height="240" class="img-responsive"/>
                                 <span/>
                             </div>
                         {% endfor %}
