@@ -167,7 +167,7 @@ def members_checkin(request):
 
 @login_required
 def members_viewcheckin(request):
-    current_members = GymCheckin.objects.all()
+    current_members = GymCheckin.objects.filter(status=1)
     id_list = []
     for member in current_members:
         id_list.append(member.gym_id)
