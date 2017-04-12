@@ -181,12 +181,8 @@ def members_viewcheckin(request):
 
 @login_required
 def payment_record(request):
-    # every time when someone open this page, generate the payment record
     # TODO: change this into a cron job
-    member_list = Members.objects.all()
-    for member in member_list:
-        PaymentGenerator.generateRecord(member)
-
+    PaymentGenerator.generateRecord()
     payment_list = PaymentRecord.objects.all()
     context = {
         'payments': payment_list,

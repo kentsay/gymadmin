@@ -98,3 +98,7 @@ class PaymentRecord(models.Model):
 
     def __str__(self):
         return '{}: {}-{}'.format(self.uid, self.begin_period, self.end_period)
+
+
+class InvoiceNumber(models.Model):
+    invoiceId = models.PositiveIntegerField(default=10000001)
