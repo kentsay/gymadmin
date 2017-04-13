@@ -189,3 +189,16 @@ def payment_record(request):
         'count': len(payment_list),
     }
     return render(request, 'dashboard/sbadmin/pages/payments.html', context)
+
+
+@login_required
+def payment_record_change_status(request):
+    payment_obj = PaymentRecord.objects.get(id=request.GET['id'])
+    print("status: ", payment_obj.pay_status)
+    if payment_obj.pay_status is False:
+        payment_obj.pay_status = True
+    else:
+        payment_obj.pay_status = False
+    payment_obj.save()
+    return HttpResponseRedirect('payments')
+    pass

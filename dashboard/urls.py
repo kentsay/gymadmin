@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^add_member$', views.members_add, name='members_add'),
     url(r'^edit_member$', views.members_edit, name='members_edit'),
     url(r'^payments$', views.payment_record, name='payment_record'),
+    url(r'^payments_change$', views.payment_record_change_status, name='payment_record_change_status'),
     url(r'^checkin$', views.members_checkin, name='members_checkin'),
     url(r'^viewcheckin$', views.members_viewcheckin, name='members_viewcheckin'),
 

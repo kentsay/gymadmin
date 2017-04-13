@@ -1,6 +1,5 @@
 from .models import PaymentRecord, Members, InvoiceNumber
 import datetime
-import math
 from dateutil.relativedelta import relativedelta
 
 
@@ -42,14 +41,26 @@ class PaymentGenerator:
                 pass
             else:
                 for index in range(exist_records, num_of_records):
+                    '''
+                    If payment records already exists, then pick the latest payment record date,
+                    base on this date and continue to generate further invoice.
+                    Otherwise, just use original join_date.
+                    '''
+                    if exist_records is not 0:
+                        last_record = PaymentRecord.objects.filter(uid=member.id).order_by('-invoice_number')[0]
+                        join_date = last_record.end_period
+
                     date_after_month = join_date + relativedelta(months=period)
-                    record = PaymentRecord(uid=member,
+                    record = PaymentRecord(
+                                       uid=member,
                                        invoice_number=invoice_id,
                                        begin_period=join_date.strftime('%Y-%m-%d'),
                                        end_period=date_after_month.strftime('%Y-%m-%d'),
                                        member_fee=get_gym_fee(member.gym_plan),
-                                       pay_status=False)
+                                       pay_status=False
+                                       )
                     record.save()
+                    # invoice number move on
                     invoice_id += 1
                     join_date = join_date + relativedelta(months=period)
 
