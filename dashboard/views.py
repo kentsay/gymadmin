@@ -85,7 +85,7 @@ def members_add(request):
             form.save()
             m = Members.objects.get(uuid=form.cleaned_data['uuid'])
             # auto generate the payment record from the join date to current date
-            PaymentGenerator.generateRecord(m)
+            PaymentGenerator.generateRecord()
             return HttpResponseRedirect('members')
         else:
             print form.errors
