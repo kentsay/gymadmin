@@ -100,8 +100,36 @@
 
                                 <div class="tab-pane fade" id="billing">
                                 <p>&nbsp;</p>
-                                    <h4>Zahlungen</h4>
-
+                                    <table width="100%" class="table table-striped table-hover" id="dataTables-example">
+                                        <thead>
+                                        <tr>
+                                            <th>Mitglied</th>
+                                            <th>Rechnungs-Nr.</th>
+                                            <th>Von</th>
+                                            <th>Bis</th>
+                                            <th>Betrag</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for payment in payment_record %}
+                                            <tr class="odd gradeX">
+                                                <td>{{ payment.uid }}</td>
+                                                <td>{{ payment.invoice_number }}</td>
+                                                <td>{{ payment.begin_period }}</td>
+                                                <td>{{ payment.end_period }}</td>
+                                                <td>{{ payment.member_fee }}</td>
+                                                <td>
+                                                    {% if payment.pay_status %}
+                                                        Complete
+                                                    {% else %}
+                                                        Unpaid
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="tab-pane fade" id="setting">
                                     <p>&nbsp;</p>

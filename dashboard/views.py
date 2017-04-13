@@ -59,6 +59,7 @@ def members(request):
 @login_required
 def members_detail(request):
     member_list = Members.objects.get(id=request.GET['id'])
+    payment_record = PaymentRecord.objects.filter(uid=request.GET['id'])
     gym_list = Gym.objects.all()
     plan = GymPlan.objects.all()
     payment = PaymentPeriod.objects.all()
@@ -72,6 +73,7 @@ def members_detail(request):
         'acitiviy_list': activity,
         'team_list': team,
         'members': member_list,
+        'payment_record': payment_record,
     }
     return render(request, 'dashboard/sbadmin/pages/members_detail.html', context)
 
