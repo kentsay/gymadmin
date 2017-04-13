@@ -33,7 +33,7 @@ class Members(models.Model):
 
 
 class GymCheckin(models.Model):
-    gym_id = models.CharField(max_length=200, unique=True, null=False)
+    gym_id = models.CharField(max_length=200, null=False)
     checkin_time = models.DateTimeField(auto_now=True, auto_now_add=False)
     status = models.BooleanField()
 
