@@ -1,5 +1,6 @@
-from .models import PaymentRecord, Members, InvoiceNumber
+from .models import PaymentRecord, Members, InvoiceNumber, GymPlan
 import datetime
+import json
 from dateutil.relativedelta import relativedelta
 
 
@@ -14,9 +15,10 @@ def months_between(date1, date2):
     return months
 
 
-def get_gym_fee(gym_plan):
-    print("gym plan ", gym_plan)
-    return 100
+def get_gym_fee(payment_period, gym_plan):
+    plan = GymPlan.objects.get(id=gym_plan)
+    price_json = json.loads(plan.price)
+    return price_json[str(payment_period)]
 
 
 class PaymentGenerator:
@@ -56,7 +58,7 @@ class PaymentGenerator:
                                        invoice_number=invoice_id,
                                        begin_period=join_date.strftime('%Y-%m-%d'),
                                        end_period=date_after_month.strftime('%Y-%m-%d'),
-                                       member_fee=get_gym_fee(member.gym_plan),
+                                       member_fee=get_gym_fee(period, member.gym_plan),
                                        pay_status=False
                                        )
                     record.save()
