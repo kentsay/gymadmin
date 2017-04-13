@@ -183,7 +183,15 @@ def members_viewcheckin(request):
 def payment_record(request):
     # TODO: change this into a cron job
     PaymentGenerator.generateRecord()
+    query = request.GET.get("q", None)
     payment_list = PaymentRecord.objects.all()
+    if query is not None:
+        payment_list = payment_list.filter(
+            Q(invoice_number__icontains=query) |
+            Q(begin_period__icontains=query) |
+            Q(end_period__icontains=query) |
+            Q(member_fee__icontains=query)
+        )
     context = {
         'payments': payment_list,
         'count': len(payment_list),
