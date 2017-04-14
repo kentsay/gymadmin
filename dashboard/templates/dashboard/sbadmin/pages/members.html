@@ -4,7 +4,7 @@
     <div id="page-wrapper" xmlns="http://www.w3.org/1999/html">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Gym Mitglieder</h1>
+                <h1 class="page-header">Mitglieder&uuml;bersicht</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -13,7 +13,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        &nbsp;
+                        <a href="add_member">&nbsp;Mitglied Hinzuf&uuml;gen</a> | <a href="payments">Zahlungs&uuml;bersicht</a>
                     </div>
                     <!-- /.panel-heading -->
 
@@ -48,7 +48,7 @@
                                 <td>{{ member.vorname }}</td>
                                 <td>{{ member.name }}</td>
                                 <td>{{ member.street1 }}, {{ member.city }}, {{ member.postcode }}</td>
-                                <td>{{ member.email_name }}</td>
+                                <td><a href="mailto:{{ member.email_name }}">{{ member.email_name }}</a></td>
                                 <td>{{ member.mobile }}</td>
                                 <td>{{ member.gym_plan }}</td>
                                 <td><a class="btn btn-default btn-outline btn-primary" href="members_detail?id={{ member.id }}">Edit</a></td>
