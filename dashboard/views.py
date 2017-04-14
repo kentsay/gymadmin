@@ -14,18 +14,11 @@ from utils import PaymentGenerator
 
 @login_required
 def index(request):
-    gym_list = Gym.objects.all()
-    plan = GymPlan.objects.all()
-    payment = PaymentPeriod.objects.all()
-    activity = GymActivity.objects.all()
-    team = FightTeam.objects.all()
+    members = Members.objects.all()
+    members_checkin = GymCheckin.objects.filter(status=True)
     context = {
-        'gym_list': gym_list,
-        'gym_number': len(gym_list),
-        'plan_list': plan,
-        'payment_list': payment,
-        'acitiviy_list': activity,
-        'team_list': team,
+        'members': len(members),
+        'members_checkin': len(members_checkin),
     }
     return render(request, 'dashboard/sbadmin/pages/index.html', context)
 
