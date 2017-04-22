@@ -13,7 +13,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="members">&nbsp;Mitglieder&uuml;bersicht</a>
+                        <a href="members"><i class="fa fa-users fa-fw"></i> Mitglieder&uuml;bersicht</a>
                     </div>
                     <!-- /.panel-heading -->
 
@@ -37,7 +37,7 @@
                                 <th>Bis</th>
                                 <th>Betrag</th>
                                 <th>Status</th>
-                                <th>Zahlen</th>
+                                <th>Bezahlung</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -50,16 +50,16 @@
                                 <td>{{ payment.member_fee }}</td>
                                 <td>
                                     {% if payment.pay_status %}
-                                        Complete
+                                        Bezahlt
                                     {% else %}
-                                        Unpaid
+                                        Unbezahlt
                                     {% endif %}
                                 </td>
                                 <td>
                                     {% if payment.pay_status %}
-                                        <a class="btn btn-default btn-outline btn-primary" href="payments_change?id={{ payment.id }}">Complete</a>
+                                        <a class="btn btn-default btn-outline btn-primary" href="payments_change?id={{ payment.id }}">Erhalten</a>
                                     {% else %}
-                                        <a class="btn btn-default btn-outline btn-danger" href="payments_change?id={{ payment.id }}">Pay</a>
+                                        <a class="btn btn-default btn-outline btn-danger" href="payments_change?id={{ payment.id }}">Ausstehend</a>
                                     {% endif %}
                                 </td>
                             </tr>
@@ -69,6 +69,9 @@
                         <!-- /.table-responsive -->
                     </div>
                     <!-- /.panel-body -->
+                    <div class="panel-heading">
+                        <a href="payments"><i class="fa fa-refresh"></i>&nbsp;Alle Anzeigen</a>
+                    </div>
                 </div>
                 <!-- /.panel -->
             </div>
