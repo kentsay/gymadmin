@@ -57,9 +57,9 @@
                                 </td>
                                 <td>
                                     {% if payment.pay_status %}
-                                        <a class="btn btn-default btn-outline btn-primary" href="payments_change?id={{ payment.id }}">Erhalten</a>
+                                        <a class="btn btn-default btn-outline btn-primary disabled" href="payments_change?id={{ payment.id }}">Erhalten</a>
                                     {% else %}
-                                        <a class="btn btn-default btn-outline btn-danger" href="payments_change?id={{ payment.id }}">Ausstehend</a>
+                                        <a class="btn btn-default btn-outline btn-danger btn-payment" href="payments_change?id={{ payment.id }}">Ausstehend</a>
                                     {% endif %}
                                 </td>
                             </tr>

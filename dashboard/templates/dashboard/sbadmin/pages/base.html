@@ -217,6 +217,19 @@
             });
         });
 
+        $( function () {
+            $( ".btn-payment").confirmModal({
+                confirmTitle     : 'Please confirm',
+                confirmMessage   : 'Are you sure you want to make this payment?',
+                confirmOk        : 'Yes',
+                confirmCancel    : 'Cancel',
+                confirmStyle     : 'primary',
+                confirmDismiss   : true,
+                confirmAutoOpen  : false
+            });
+        });
+
+
     </script>
 
 </body>
