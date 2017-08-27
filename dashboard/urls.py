@@ -21,6 +21,8 @@ urlpatterns = [
     url(r'^payments_change$', views.payment_record_change_status, name='payment_record_change_status'),
     url(r'^checkin$', views.members_checkin, name='members_checkin'),
     url(r'^viewcheckin$', views.members_viewcheckin, name='members_viewcheckin'),
+    url(r'^income_report$', views.income_report, name='income_report'),
+    url(r'^members_report$', views.members_report, name='members_members_report'),
 
     # ex: /polls/5/
     url(r'^(?P<gym_id>[0-9]+)/gym/$', views.gym, name='gym'),

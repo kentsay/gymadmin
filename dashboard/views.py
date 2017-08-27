@@ -175,6 +175,17 @@ def members_viewcheckin(request):
 
 
 @login_required
+def income_report(request):
+
+    return render(request, 'dashboard/sbadmin/pages/reports_income.html', None)
+
+
+@login_required
+def members_report(request):
+    return None
+
+
+@login_required
 def payment_record(request):
     # TODO: change this into a cron job
     PaymentGenerator.generateRecord()

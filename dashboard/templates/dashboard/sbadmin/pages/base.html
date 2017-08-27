@@ -34,203 +34,203 @@
 </head>
 
 <body>
-    <div id="wrapper">
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="">ezGymManager | Fight Industry GmbH</a>
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">ezGymManager | Fight Industry GmbH</a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-gear fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <!-- <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li> -->
+                    <li>
+                        <a target="_blank" href="viewcheckin"><i class="fa fa-th fa-fw"></i> Heute Im Gym</a>
+                    </li>
+                    <li>
+                        <a href="members"><i class="fa fa-users fa-fw"></i> Mitglieder&uuml;bersicht</a>
+                    </li>
+                    <li>
+                        <a href="payments"><i class="fa fa-dollar fa-fw"></i> Zahlungs&uuml;bersicht</a>
+                    </li>
+                    <li>
+                        <a href="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+
+                    <!-- <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            </span>
+                        </div>
+                    </li> -->
+
+                    <li>
+                        <a href="index"><i class="fa fa-bars fa-fw"></i> Gym</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-print fa-fw"></i> Berichte<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="income_report">Einnahmen</a>
+                            </li>
+                            <li>
+                                <a href="members_report">Mitgliedsbericht</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-gears fa-fw"></i> Verwaltung<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li>
+                                <a href="#">Mitglieder<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="add_member">Mitglied Hinzuf&uuml;gen</a>
+                                    </li>
+                                    <li>
+                                        <a href="members">Mitglieder&uuml;bersicht</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Zahlungen<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="payments">Zahlungs&uuml;bersicht</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-th fa-fw"></i> Gym Check-In<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="checkin">Check-In</a>
+                            </li>
+                            <li>
+                                <a href="viewcheckin">Heute Im Gym</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-external-link fa-fw"></i> Links<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a target="_blank" href="http://138.68.88.142/Fight_Industry_Einverstantniserklarung_V1.pdf">Fight Industry Einvert&auml;tnis</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="http://138.68.88.142/Fight_Industry_Vertrag_V2.pdf">Fight Industry Vertrag</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="http://fightindustry.ch">Fight Industry Webseite</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="http://facebook.com/fightindustry75">Fight Industry Facebook Seite</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <!-- /.navbar-header -->
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+    <!-- /#page-wrapper -->
+    {% block content %}
+    {% endblock %}
+</div>
+<!-- /#wrapper -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-gear fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <!-- <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li> -->
-                        <li>
-                            <a target="_blank" href="viewcheckin"><i class="fa fa-th fa-fw"></i> Heute Im Gym</a>
-                        </li>
-                        <li>
-                            <a href="members"><i class="fa fa-users fa-fw"></i> Mitglieder&uuml;bersicht</a>
-                        </li>
-                        <li>
-                            <a href="payments"><i class="fa fa-dollar fa-fw"></i> Zahlungs&uuml;bersicht</a>
-                        </li>
-                        <li>
-                            <a href="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        
-                        <!-- <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                                </span>
-                            </div>
-                        </li> -->
-
-                        <li>
-                            <a href="index"><i class="fa fa-bars fa-fw"></i> Gym</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-print fa-fw"></i> Berichte<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Einnahmen</a>
-                                </li>
-                                <li>
-                                    <a href="#">Mitgliedsbericht</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-gears fa-fw"></i> Verwaltung<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                              
-                                <li>
-                                    <a href="#">Mitglieder<span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="add_member">Mitglied Hinzuf&uuml;gen</a>
-                                        </li>
-                                        <li>
-                                            <a href="members">Mitglieder&uuml;bersicht</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Zahlungen<span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="payments">Zahlungs&uuml;bersicht</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-th fa-fw"></i> Gym Check-In<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="checkin">Check-In</a>
-                                </li>
-                                <li>
-                                    <a href="viewcheckin">Heute Im Gym</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-external-link fa-fw"></i> Links<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a target="_blank" href="http://138.68.88.142/Fight_Industry_Einverstantniserklarung_V1.pdf">Fight Industry Einvert&auml;tnis</a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="http://138.68.88.142/Fight_Industry_Vertrag_V2.pdf">Fight Industry Vertrag</a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="http://fightindustry.ch">Fight Industry Webseite</a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="http://facebook.com/fightindustry75">Fight Industry Facebook Seite</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
-        <!-- /#page-wrapper -->
-         {% block content %}
-         {% endblock %}
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    {% load static %}
-    <script src="{% static 'dashboard/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'dashboard/vendor/jquery/jquery-ui.js' %}"></script>
-    <script src="{% static 'dashboard/vendor/bootstrap/js/bootstrap-toggle.min.js' %}"></script>
-    <script src="{% static 'dashboard/vendor/bootstrap/js/confirm-bootstrap.js' %}"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{% static 'dashboard/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="{% static 'dashboard/vendor/metisMenu/metisMenu.min.js' %}"></script>
-    <!-- Morris Charts JavaScript -->
-    <script src="{% static 'dashboard/vendor/raphael/raphael.min.js' %}"></script>
-    <script src="{% static 'dashboard/vendor/morrisjs/morris.min.js' %}"></script>
-    <script src="{% static 'dashboard/data/morris-data.js' %}"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="{% static 'dashboard/dist/js/sb-admin-2.js' %}"></script>
-    <script>
-        $( function() {
-            $( "#datepicker" ).datepicker({
-                changeMonth: true,
-                changeYear: true,
-                dateFormat: 'yy-mm-dd'
-            });
+<!-- jQuery -->
+{% load static %}
+<script src="{% static 'dashboard/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'dashboard/vendor/jquery/jquery-ui.js' %}"></script>
+<script src="{% static 'dashboard/vendor/bootstrap/js/bootstrap-toggle.min.js' %}"></script>
+<script src="{% static 'dashboard/vendor/bootstrap/js/confirm-bootstrap.js' %}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'dashboard/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="{% static 'dashboard/vendor/metisMenu/metisMenu.min.js' %}"></script>
+<!-- Morris Charts JavaScript -->
+<script src="{% static 'dashboard/vendor/raphael/raphael.min.js' %}"></script>
+<script src="{% static 'dashboard/vendor/morrisjs/morris.min.js' %}"></script>
+<script src="{% static 'dashboard/data/morris-data.js' %}"></script>
+<!-- Custom Theme JavaScript -->
+<script src="{% static 'dashboard/dist/js/sb-admin-2.js' %}"></script>
+<script>
+    $( function() {
+        $( "#datepicker" ).datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'yy-mm-dd'
         });
+    });
 
-        $( function() {
-            $( "#datepicker2" ).datepicker({
-                dateFormat: 'yy-mm-dd'
-            });
+    $( function() {
+        $( "#datepicker2" ).datepicker({
+            dateFormat: 'yy-mm-dd'
         });
+    });
 
-        $( function () {
-            $( ".btn-delete").confirmModal({
-                confirmTitle     : 'Please confirm',
-                confirmMessage   : 'Are you sure you want to delete this data?',
-                confirmOk        : 'Yes',
-                confirmCancel    : 'Cancel',
-                confirmStyle     : 'primary',
-                confirmDismiss   : true,
-                confirmAutoOpen  : false
-            });
+    $( function () {
+        $( ".btn-delete").confirmModal({
+            confirmTitle     : 'Please confirm',
+            confirmMessage   : 'Are you sure you want to delete this data?',
+            confirmOk        : 'Yes',
+            confirmCancel    : 'Cancel',
+            confirmStyle     : 'primary',
+            confirmDismiss   : true,
+            confirmAutoOpen  : false
         });
+    });
 
-        $( function () {
-            $( ".btn-payment").confirmModal({
-                confirmTitle     : 'Please confirm',
-                confirmMessage   : 'Are you sure you want to make this payment?',
-                confirmOk        : 'Yes',
-                confirmCancel    : 'Cancel',
-                confirmStyle     : 'primary',
-                confirmDismiss   : true,
-                confirmAutoOpen  : false
-            });
+    $( function () {
+        $( ".btn-payment").confirmModal({
+            confirmTitle     : 'Please confirm',
+            confirmMessage   : 'Are you sure you want to make this payment?',
+            confirmOk        : 'Yes',
+            confirmCancel    : 'Cancel',
+            confirmStyle     : 'primary',
+            confirmDismiss   : true,
+            confirmAutoOpen  : false
         });
+    });
 
 
-    </script>
+</script>
 
 </body>
 
