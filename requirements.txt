@@ -3,7 +3,7 @@ Django==1.10
 django-crispy-forms==1.6.1
 django-crontab==0.7.1
 djangorestframework==3.9.1
-Pillow==3.4.2
+Pillow==6.2.0
 python-dateutil==2.6.0
 redis==2.10.5
 requests==2.13.0
