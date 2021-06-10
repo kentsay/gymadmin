@@ -1,5 +1,5 @@
 beautifulsoup4==4.5.3
-Django==1.11.23
+Django==2.2.24
 django-crispy-forms==1.6.1
 django-crontab==0.7.1
 djangorestframework==3.9.1
